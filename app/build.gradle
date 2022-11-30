@@ -1,0 +1,74 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id "kotlin-kapt"
+}
+
+android {
+    namespace 'app.suhasdissa.karoke'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "app.suhasdissa.karoke"
+        minSdk 29
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.4.0-alpha02"
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "androidx.activity:activity-compose:1.6.1"
+    implementation "androidx.compose.ui:ui:1.4.0-alpha02"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.4.0-alpha02"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+    implementation "com.google.accompanist:accompanist-pager:0.27.1"
+    implementation "androidx.navigation:navigation-compose:2.5.3"
+    implementation "com.google.accompanist:accompanist-navigation-animation:0.27.1"
+
+    //Coil
+    implementation "io.coil-kt:coil-compose:2.2.2"
+
+    //Material
+    implementation 'androidx.compose.material3:material3:1.1.0-alpha02'
+
+    //Room
+    def room_version = "2.4.3"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+}

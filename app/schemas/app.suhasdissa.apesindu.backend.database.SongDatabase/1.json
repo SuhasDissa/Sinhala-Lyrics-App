@@ -1,0 +1,88 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "bd5dc8c0faa68e0c23d5935e4cdc8af4",
+    "entities": [
+      {
+        "tableName": "songs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `artistID` INTEGER NOT NULL, `song` TEXT NOT NULL DEFAULT '', `lyric` TEXT NOT NULL DEFAULT '', `artistName` TEXT NOT NULL DEFAULT '')",
+        "fields": [
+          {
+            "fieldPath": "_id",
+            "columnName": "_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "artistID",
+            "columnName": "artistID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "song",
+            "columnName": "song",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "lyric",
+            "columnName": "lyric",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "artistName",
+            "columnName": "artistName",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "artists",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`artistID` INTEGER NOT NULL, `artistName` TEXT NOT NULL DEFAULT '', PRIMARY KEY(`artistID`))",
+        "fields": [
+          {
+            "fieldPath": "artistID",
+            "columnName": "artistID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "artistName",
+            "columnName": "artistName",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "artistID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bd5dc8c0faa68e0c23d5935e4cdc8af4')"
+    ]
+  }
+}
