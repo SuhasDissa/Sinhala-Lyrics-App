@@ -27,7 +27,7 @@ fun ArtistCard(
             modifier
                 .padding(10.dp)
         ) {
-            Text(text = artist, style = MaterialTheme.typography.headlineMedium)
+            Text(text = artist, style = MaterialTheme.typography.titleLarge)
         }
     }
 }

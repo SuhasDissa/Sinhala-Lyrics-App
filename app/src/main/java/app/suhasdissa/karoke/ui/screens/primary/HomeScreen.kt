@@ -37,7 +37,7 @@ fun HomeScreen(
                         )
                     }
                 }) {
-                Text("Songs",modifier.padding(10.dp), style = MaterialTheme.typography.headlineMedium)
+                Text("Songs",modifier.padding(10.dp), style = MaterialTheme.typography.titleLarge)
             }
             Tab(
                 modifier = modifier.weight(1f),
@@ -49,7 +49,7 @@ fun HomeScreen(
                         )
                     }
                 }) {
-                Text("Artists",modifier.padding(10.dp), style = MaterialTheme.typography.headlineMedium)
+                Text("Artists",modifier.padding(10.dp), style = MaterialTheme.typography.titleLarge)
             }
         }
         HorizontalPager(count = 2, state = pagerState, modifier = modifier.fillMaxSize()) { index ->

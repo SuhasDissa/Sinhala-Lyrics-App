@@ -28,7 +28,7 @@ fun TextCard(
             modifier
                 .padding(10.dp)
         ) {
-            Text(text = song, style = MaterialTheme.typography.headlineSmall)
+            Text(text = song, style = MaterialTheme.typography.titleLarge)
             Spacer(modifier.height(10.dp))
             Text(text = artist, style = MaterialTheme.typography.titleMedium)
         }

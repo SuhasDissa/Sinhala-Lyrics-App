@@ -24,34 +24,39 @@ fun SongView(
     LaunchedEffect(Unit) {
         lyricViewModel.getSong(lyricId)
     }
-    Column(
+    LazyColumn(
         modifier
             .fillMaxSize()
-            .padding(vertical = 20.dp,horizontal = 10.dp), Arrangement.spacedBy(20.dp), horizontalAlignment = Alignment.CenterHorizontally
+            .padding(horizontal = 10.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Card(
-            modifier.fillMaxWidth()
-        ) {
-            Column(
-                modifier
-                    .fillMaxWidth()
-                    .padding(10.dp)
+        item {
+            Card(
+                modifier.fillMaxWidth()
             ) {
-                Text(song.song, style = MaterialTheme.typography.headlineLarge)
-                Text(song.artistName, style = MaterialTheme.typography.titleLarge)
+                Column(
+                    modifier
+                        .fillMaxWidth()
+                        .padding(10.dp)
+                ) {
+                    Text(song.song, style = MaterialTheme.typography.titleLarge)
+                    Text(song.artistName, style = MaterialTheme.typography.titleSmall)
+                }
             }
         }
-        Card(
-            modifier.fillMaxWidth()
-        ) {
-            LazyColumn(
-                modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
+        item {
+            Card(
+                modifier.fillMaxWidth()
             ) {
-                item {
+                Column(
+                    modifier
+                        .fillMaxWidth()
+                        .padding(10.dp)
+                ) {
                     SelectionContainer(modifier.fillMaxWidth()) {
-                        Text(song.lyric, style = MaterialTheme.typography.bodyLarge)
+                        Text(song.lyric, style = MaterialTheme.typography.bodyMedium)
+
                     }
                 }
             }
