@@ -10,18 +10,36 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.karoke.LyricsApplication
-import app.suhasdissa.karoke.backend.repositories.Song
+import app.suhasdissa.karoke.backend.repositories.Artist
+import app.suhasdissa.karoke.backend.repositories.SongHeader
 import app.suhasdissa.karoke.backend.repositories.SongRepository
 import kotlinx.coroutines.launch
 
-class LyricsViewModel(private val songRepository: SongRepository) : ViewModel() {
-    var song: Song by mutableStateOf(Song(artistID = 0, song = "", lyric = "", artistName = "",_id=1 ))
+sealed interface FilterState {
+    data class Success(val songs: ArrayList<SongHeader>) : FilterState
+    object Loading : FilterState
+    object Empty : FilterState
+}
+
+class ArtistFilterViewModel(private val songRepository: SongRepository) : ViewModel() {
+    var filterState: FilterState by mutableStateOf(FilterState.Empty)
+        private set
+    var artist: Artist by mutableStateOf(Artist(artistID = 0, artistName = ""))
         private set
 
-
-    fun getSong(id: Int) {
+    fun filterArtist(id: Int) {
         viewModelScope.launch {
-            song = songRepository.getSong(id)
+            filterState = FilterState.Loading
+            filterState = FilterState.Success(
+                songRepository.filterArtist(id)
+            )
+
+        }
+    }
+
+    fun getArtist(id: Int) {
+        viewModelScope.launch {
+            artist = songRepository.getArtist(id)
         }
     }
 
@@ -30,7 +48,7 @@ class LyricsViewModel(private val songRepository: SongRepository) : ViewModel() 
             initializer {
                 val application = (this[APPLICATION_KEY] as LyricsApplication)
                 val songRepository = application.container.songRepository
-                LyricsViewModel(songRepository = songRepository)
+                ArtistFilterViewModel(songRepository = songRepository)
             }
         }
     }

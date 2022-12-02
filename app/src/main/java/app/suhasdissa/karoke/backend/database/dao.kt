@@ -19,6 +19,9 @@ interface SongsDao {
     @Query("SELECT _id,song,artistName FROM songs WHERE song LIKE :search")
     fun searchSongs(search:String): List<SongHeader>
 
+    @Query("SELECT _id,song,artistName FROM songs WHERE artistID = :artist")
+    fun filterArtist(artist:Int): List<SongHeader>
+
     @Query("SELECT * FROM songs WHERE _id = :id")
     fun getSong(id: Int): SongEntity
 
@@ -33,6 +36,9 @@ interface SongsDao {
 interface ArtistsDao {
     @Query("SELECT * FROM artists")
     fun getAll(): List<ArtistEntity>
+
+    @Query("SELECT * FROM artists WHERE artistID = :artist")
+    fun getArtist(artist:Int): ArtistEntity
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(memes: List<ArtistEntity>)

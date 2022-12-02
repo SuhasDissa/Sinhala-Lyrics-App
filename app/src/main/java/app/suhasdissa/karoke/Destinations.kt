@@ -28,3 +28,9 @@ object SongViewer : Destination {
     val routeWithArgs = "$route/{SongID}"
     val arguments = listOf(navArgument("SongID") { type = NavType.IntType})
 }
+
+object ArtistFilter : Destination {
+    override val route = "artistfilter"
+    val routeWithArgs = "$route/{ArtistID}"
+    val arguments = listOf(navArgument("ArtistID") { type = NavType.IntType})
+}
