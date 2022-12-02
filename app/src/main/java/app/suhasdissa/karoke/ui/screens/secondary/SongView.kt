@@ -55,7 +55,7 @@ fun SongView(
                         .padding(10.dp)
                 ) {
                     SelectionContainer(modifier.fillMaxWidth()) {
-                        Text(song.lyric, style = MaterialTheme.typography.bodyMedium)
+                        Text(song.lyric, style = MaterialTheme.typography.bodyLarge)
 
                     }
                 }
