@@ -14,6 +14,7 @@ import app.suhasdissa.lyrics.backend.viewmodels.FilterState
 import app.suhasdissa.lyrics.ui.components.LoadingScreen
 import app.suhasdissa.lyrics.ui.components.MessageScreen
 import app.suhasdissa.lyrics.ui.components.SongGrid
+import app.suhasdissa.lyrics.R
 
 @Composable
 fun ArtistFilterScreen(

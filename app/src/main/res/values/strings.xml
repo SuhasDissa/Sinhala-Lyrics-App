@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sinhala Karoke</string>
+    <string name="app_name">Sinhala Lyrics</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
     <string name="loading_failed">Loading Failed</string>
@@ -7,7 +7,7 @@
     <string name="github_avatar">https://avatars.githubusercontent.com/SuhasDissa</string>
     <string name="avatar_description">avatar description</string>
     <string name="developer_name">Suhas Dissanayake</string>
-    <string name="developer_username">SuhasDissa</string>
+    <string name="developer_username">\@SuhasDissa</string>
     <string name="github_icon_hint">github icon</string>
     <string name="twitter_icon_hint">twitter icon</string>
     <string name="update_description">Check Update:</string>
