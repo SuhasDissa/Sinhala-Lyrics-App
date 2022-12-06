@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'app.suhasdissa.karoke'
+    namespace 'app.suhasdissa.lyrics'
     compileSdk 33
 
     defaultConfig {
-        applicationId "app.suhasdissa.karoke"
+        applicationId "app.suhasdissa.lyrics"
         minSdk 24
         targetSdk 33
         versionCode 1
