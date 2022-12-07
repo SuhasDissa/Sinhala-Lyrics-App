@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.suhasdissa.lyrics.backend.repositories.SongHeader
+import app.suhasdissa.lyrics.backend.repositories.data.SongHeader
 
 @Composable
 fun SongGrid(

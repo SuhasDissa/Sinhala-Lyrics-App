@@ -1,4 +1,4 @@
-package app.suhasdissa.lyrics.backend.database
+package app.suhasdissa.lyrics.backend.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,10 +12,4 @@ data class SongEntity(
     @ColumnInfo(name = "lyric", defaultValue = "") val lyric: String,
     @ColumnInfo(name = "artistName", defaultValue = "") val artistName: String
 
-)
-
-@Entity(tableName = "artists")
-data class ArtistEntity(
-    @PrimaryKey val artistID: Int,
-    @ColumnInfo(name = "artistName", defaultValue = "") val artistName: String
 )

@@ -9,12 +9,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import app.suhasdissa.lyrics.R
 import app.suhasdissa.lyrics.backend.viewmodels.ArtistFilterViewModel
-import app.suhasdissa.lyrics.backend.viewmodels.FilterState
-import app.suhasdissa.lyrics.ui.components.LoadingScreen
+import app.suhasdissa.lyrics.backend.viewmodels.states.FilterState
 import app.suhasdissa.lyrics.ui.components.MessageScreen
 import app.suhasdissa.lyrics.ui.components.SongGrid
-import app.suhasdissa.lyrics.R
 
 @Composable
 fun ArtistFilterScreen(
@@ -42,7 +41,6 @@ fun ArtistFilterScreen(
         }
         when (val state = filterViewModel.filterState) {
             is FilterState.Empty -> MessageScreen(R.string.no_songs_for_artist, modifier)
-            is FilterState.Loading -> LoadingScreen(modifier)
             is FilterState.Success -> if (state.songs.isEmpty()) {
                 MessageScreen(R.string.no_songs_for_artist, modifier)
             } else {

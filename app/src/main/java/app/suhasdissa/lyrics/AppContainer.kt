@@ -9,5 +9,5 @@ interface AppContainer {
 }
 
 class DefaultAppContainer(database: SongDatabase) : AppContainer {
-    override val songRepository: SongRepository by lazy { LocalSongRepository(database.songsDao(),database.aristsDao()) }
+    override val songRepository: SongRepository by lazy { LocalSongRepository(database.songsDao(),database.artistsDao()) }
 }

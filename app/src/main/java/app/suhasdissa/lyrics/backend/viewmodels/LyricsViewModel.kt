@@ -10,12 +10,20 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.lyrics.LyricsApplication
-import app.suhasdissa.lyrics.backend.repositories.Song
 import app.suhasdissa.lyrics.backend.repositories.SongRepository
+import app.suhasdissa.lyrics.backend.repositories.data.Song
 import kotlinx.coroutines.launch
 
 class LyricsViewModel(private val songRepository: SongRepository) : ViewModel() {
-    var song: Song by mutableStateOf(Song(artistID = 0, song = "", lyric = "", artistName = "",_id=1 ))
+    var song: Song by mutableStateOf(
+        Song(
+            artistID = 0,
+            song = "",
+            lyric = "",
+            artistName = "",
+            _id = 1
+        )
+    )
         private set
 
 

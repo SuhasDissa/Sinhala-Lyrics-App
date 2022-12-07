@@ -10,16 +10,10 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.lyrics.LyricsApplication
-import app.suhasdissa.lyrics.backend.repositories.Artist
-import app.suhasdissa.lyrics.backend.repositories.SongHeader
 import app.suhasdissa.lyrics.backend.repositories.SongRepository
+import app.suhasdissa.lyrics.backend.repositories.data.Artist
+import app.suhasdissa.lyrics.backend.viewmodels.states.FilterState
 import kotlinx.coroutines.launch
-
-sealed interface FilterState {
-    data class Success(val songs: ArrayList<SongHeader>) : FilterState
-    object Loading : FilterState
-    object Empty : FilterState
-}
 
 class ArtistFilterViewModel(private val songRepository: SongRepository) : ViewModel() {
     var filterState: FilterState by mutableStateOf(FilterState.Empty)
@@ -29,7 +23,6 @@ class ArtistFilterViewModel(private val songRepository: SongRepository) : ViewMo
 
     fun filterArtist(id: Int) {
         viewModelScope.launch {
-            filterState = FilterState.Loading
             filterState = FilterState.Success(
                 songRepository.filterArtist(id)
             )

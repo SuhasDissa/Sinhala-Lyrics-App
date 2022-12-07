@@ -11,9 +11,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.suhasdissa.lyrics.R
-import app.suhasdissa.lyrics.backend.viewmodels.SearchState
 import app.suhasdissa.lyrics.backend.viewmodels.SearchViewModel
-import app.suhasdissa.lyrics.ui.components.LoadingScreen
+import app.suhasdissa.lyrics.backend.viewmodels.states.SearchState
 import app.suhasdissa.lyrics.ui.components.MessageScreen
 import app.suhasdissa.lyrics.ui.components.SongGrid
 
@@ -44,7 +43,6 @@ fun SearchScreen(
 
         when (val searchState = searchViewModel.searchState) {
             is SearchState.Empty -> MessageScreen(R.string.search_for_songs, modifier)
-            is SearchState.Loading -> LoadingScreen(modifier)
             is SearchState.Success -> if (searchState.songs.isEmpty()) {
                 MessageScreen(R.string.no_results, modifier)
             } else {

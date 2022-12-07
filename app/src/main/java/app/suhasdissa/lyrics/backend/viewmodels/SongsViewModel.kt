@@ -10,17 +10,12 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.lyrics.LyricsApplication
-import app.suhasdissa.lyrics.backend.repositories.SongHeader
 import app.suhasdissa.lyrics.backend.repositories.SongRepository
+import app.suhasdissa.lyrics.backend.repositories.data.SongHeader
 import kotlinx.coroutines.launch
 
-sealed interface SongState {
-    data class Success(val songs: ArrayList<SongHeader>) : SongState
-    object Loading : SongState
-}
-
 class SongsViewModel(private val songRepository: SongRepository) : ViewModel() {
-    var songState: SongState by mutableStateOf(SongState.Loading)
+    var songs: ArrayList<SongHeader> by mutableStateOf(arrayListOf())
         private set
 
     init {
@@ -29,10 +24,8 @@ class SongsViewModel(private val songRepository: SongRepository) : ViewModel() {
 
     private fun getSongs() {
         viewModelScope.launch {
-            songState = SongState.Loading
-            songState = SongState.Success(
-                songRepository.getSongs()
-            )
+            songs = songRepository.getSongs()
+
 
         }
     }

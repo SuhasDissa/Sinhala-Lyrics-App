@@ -10,15 +10,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.lyrics.LyricsApplication
-import app.suhasdissa.lyrics.backend.repositories.SongHeader
 import app.suhasdissa.lyrics.backend.repositories.SongRepository
+import app.suhasdissa.lyrics.backend.viewmodels.states.SearchState
 import kotlinx.coroutines.launch
-
-sealed interface SearchState {
-    data class Success(val songs: ArrayList<SongHeader>) : SearchState
-    object Loading : SearchState
-    object Empty : SearchState
-}
 
 class SearchViewModel(private val songRepository: SongRepository) : ViewModel() {
     var searchState: SearchState by mutableStateOf(SearchState.Empty)
@@ -27,7 +21,6 @@ class SearchViewModel(private val songRepository: SongRepository) : ViewModel() 
     fun searchSongs(search: String) {
         val searchQuery = search.split(" ").joinToString("%")
         viewModelScope.launch {
-            searchState = SearchState.Loading
             searchState = SearchState.Success(
                 songRepository.searchSongs("%$searchQuery%")
             )
