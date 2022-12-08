@@ -22,6 +22,10 @@ fun AppNavHost(
                 navController.navigateTo("${SongViewer.route}/$id")
             }, onClickArtistCard = { artistid ->
                 navController.navigateTo("${ArtistFilter.route}/$artistid")
+            }, onClickSearch = {
+                navController.navigateTo(SearchView.route)
+            }, onClickSettings = {
+                navController.navigateTo(Settings.route)
             })
         }
         composable(route = Settings.route) {
