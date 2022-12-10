@@ -23,14 +23,20 @@ object About : Destination {
     override val route = "about"
 }
 
+object AddSong : Destination {
+    override val route = "addsong"
+    val routeWithArgs = "$route/{SongID}"
+    val arguments = listOf(navArgument("SongID") { type = NavType.IntType })
+}
+
 object SongViewer : Destination {
     override val route = "songviewer"
     val routeWithArgs = "$route/{SongID}"
-    val arguments = listOf(navArgument("SongID") { type = NavType.IntType})
+    val arguments = listOf(navArgument("SongID") { type = NavType.IntType })
 }
 
 object ArtistFilter : Destination {
     override val route = "artistfilter"
     val routeWithArgs = "$route/{ArtistID}"
-    val arguments = listOf(navArgument("ArtistID") { type = NavType.IntType})
+    val arguments = listOf(navArgument("ArtistID") { type = NavType.IntType })
 }

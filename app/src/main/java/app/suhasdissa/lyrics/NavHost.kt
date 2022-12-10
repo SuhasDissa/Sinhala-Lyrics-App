@@ -29,7 +29,11 @@ fun AppNavHost(
             })
         }
         composable(route = Settings.route) {
-            SettingsScreen()
+            SettingsScreen(onAboutClick = {
+                navController.navigateTo(About.route)
+            }, onClickAddSong = {
+                navController.navigateTo(AddSong.route)
+            })
         }
         composable(route = About.route) {
             AboutScreen()
@@ -44,8 +48,21 @@ fun AppNavHost(
         ) {
             val id = it.arguments?.getInt("SongID")
             if (id != null) {
-                SongView(id)
+                SongView(id, onClickEdit = { songid ->
+                    navController.navigateTo("${AddSong.route}/$songid")
+                })
             }
+        }
+        composable(
+            route = AddSong.routeWithArgs, arguments = AddSong.arguments
+        ) {
+            val id = it.arguments?.getInt("SongID")
+            AddSongScreen(lyricId = id)
+        }
+        composable(
+            route = AddSong.route
+        ) {
+            AddSongScreen()
         }
         composable(
             route = ArtistFilter.routeWithArgs, arguments = ArtistFilter.arguments

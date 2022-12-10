@@ -11,12 +11,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import app.suhasdissa.lyrics.R
+import app.suhasdissa.lyrics.utils.checkUpdate
+import app.suhasdissa.lyrics.utils.openBrowser
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import app.suhasdissa.lyrics.R
 
 @Composable
 fun AboutScreen(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     Column(
         modifier
             .fillMaxWidth()
@@ -56,7 +59,7 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                         style = MaterialTheme.typography.headlineSmall
                     )
                     Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                        IconButton(onClick = {}) {
+                        IconButton(onClick = {openBrowser(context,"https://github.com/SuhasDissa")}) {
 
                             Icon(
                                 painterResource(R.drawable.ic_github),
@@ -64,7 +67,7 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                                 modifier.size(40.dp)
                             )
                         }
-                        IconButton(onClick = {}) {
+                        IconButton(onClick = {openBrowser(context,"https://twitter.com/SuhasDissa")}) {
 
                             Icon(
                                 painterResource(R.drawable.ic_twitter),
@@ -90,7 +93,7 @@ fun AboutScreen(modifier: Modifier = Modifier) {
                     text = stringResource(R.string.update_description),
                     style = MaterialTheme.typography.headlineSmall
                 )
-                Button(onClick = { }, enabled = false) {
+                Button(onClick = { checkUpdate(context) }, enabled = false) {
                     Text(
                         stringResource(R.string.update_btn),
                         style = MaterialTheme.typography.headlineSmall

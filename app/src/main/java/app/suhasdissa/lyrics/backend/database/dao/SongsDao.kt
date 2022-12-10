@@ -20,7 +20,7 @@ interface SongsDao {
     @Query("SELECT * FROM songs WHERE _id = :id")
     fun getSong(id: Int): SongEntity
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(memes: List<SongEntity>)
 
     @Delete

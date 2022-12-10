@@ -15,7 +15,7 @@ fun TextCard(
     modifier: Modifier = Modifier,
     clickAction: () -> Unit,
     song: String,
-    artist:String
+    artist: String
 ) {
     ElevatedCard(
         onClick = { clickAction() },

@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 fun ArtistCard(
     modifier: Modifier = Modifier,
     clickAction: () -> Unit,
-    artist:String
+    artist: String
 ) {
     ElevatedCard(
         onClick = { clickAction() },
