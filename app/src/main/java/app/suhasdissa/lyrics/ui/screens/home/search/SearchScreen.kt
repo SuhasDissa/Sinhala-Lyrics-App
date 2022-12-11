@@ -1,4 +1,4 @@
-package app.suhasdissa.lyrics.ui.screens.primary
+package app.suhasdissa.lyrics.ui.screens.home.search
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape

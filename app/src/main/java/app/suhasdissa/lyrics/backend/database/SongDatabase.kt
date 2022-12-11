@@ -9,6 +9,7 @@ import app.suhasdissa.lyrics.backend.database.dao.SongsDao
 import app.suhasdissa.lyrics.backend.database.entities.ArtistEntity
 import app.suhasdissa.lyrics.backend.database.entities.SongEntity
 
+@Suppress("TrailingComma")
 @Database(entities = [SongEntity::class, ArtistEntity::class], version = 1, exportSchema = true,)
 abstract class SongDatabase : RoomDatabase() {
 

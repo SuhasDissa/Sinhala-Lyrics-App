@@ -1,4 +1,4 @@
-package app.suhasdissa.lyrics.ui.screens.primary
+package app.suhasdissa.lyrics.ui.screens.settings
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -6,12 +6,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.PostAdd
+import androidx.compose.material.icons.outlined.Sync
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import app.suhasdissa.lyrics.R
 import app.suhasdissa.lyrics.backend.viewmodels.AddSongViewModel
 import app.suhasdissa.lyrics.ui.components.SettingItem
 
@@ -25,7 +31,7 @@ fun SettingsScreen(
 ) {
     val context = LocalContext.current
     Scaffold(modifier = modifier.fillMaxSize(), topBar = {
-        LargeTopAppBar(title = { Text("Settings") })
+        TopAppBar(title = { Text(stringResource(R.string.settings_title)) })
     }) { innerPadding ->
         LazyColumn(
             modifier
@@ -41,7 +47,7 @@ fun SettingsScreen(
                         addSongViewModel.updateSongs()
                         Toast.makeText(context, "Update Success", Toast.LENGTH_LONG).show()
                     },
-                    icon = null
+                    icon = Icons.Outlined.Sync
                 )
             }
             item {
@@ -49,7 +55,7 @@ fun SettingsScreen(
                     title = "Add New Lyrics",
                     description = "Manually submit missing lyrics",
                     onClick = { onClickAddSong() },
-                    icon = null
+                    icon = Icons.Outlined.PostAdd
                 )
             }
             item {
@@ -57,7 +63,7 @@ fun SettingsScreen(
                     title = "About",
                     description = "Developer Contact",
                     onClick = { onAboutClick() },
-                    icon = null
+                    icon = Icons.Outlined.Info
                 )
             }
         }

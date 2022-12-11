@@ -13,10 +13,14 @@ import kotlinx.coroutines.launch
 class AddSongViewModel(private val songUpdateRepository: SongUpdateRepository) : ViewModel() {
     fun addSong(song: SongUpdate) {
         viewModelScope.launch {
-            songUpdateRepository.uploadNewLyric(song)
+            songUpdateRepository.addNewLyric(song)
         }
     }
-
+    fun editSong(song: SongUpdate) {
+        viewModelScope.launch {
+            songUpdateRepository.editExistingLyric(song)
+        }
+    }
     fun updateSongs() {
         viewModelScope.launch {
             songUpdateRepository.updateLyrics()

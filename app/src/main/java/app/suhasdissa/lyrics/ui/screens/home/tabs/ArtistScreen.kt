@@ -1,4 +1,4 @@
-package app.suhasdissa.lyrics.ui.screens.primary
+package app.suhasdissa.lyrics.ui.screens.home.tabs
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth

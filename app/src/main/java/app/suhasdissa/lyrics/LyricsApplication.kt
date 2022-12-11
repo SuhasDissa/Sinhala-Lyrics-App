@@ -4,8 +4,6 @@ import android.app.Application
 import app.suhasdissa.lyrics.backend.database.SongDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 
 class LyricsApplication : Application() {
     private val database by lazy { SongDatabase.getDatabase(this) }

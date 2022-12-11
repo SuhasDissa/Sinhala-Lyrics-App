@@ -29,7 +29,7 @@ class FirestoreSongUpdateRepository(
         }
     }
 
-    override fun uploadNewLyric(update: SongUpdate) {
+    override fun editExistingLyric(update: SongUpdate) {
         val newLyric = HashMap<String, Any>()
         newLyric["_id"] = update._id
         newLyric["artistID"] = update.artistID
@@ -38,6 +38,20 @@ class FirestoreSongUpdateRepository(
         newLyric["lyric"] = update.lyric
 
         remoteDB.collection("Lyrics").document(update._id.toString()).set(newLyric).addOnSuccessListener {
+            // Successful write
+        }.addOnFailureListener { e ->
+            Log.d("Firestore", e.toString())
+        }
+    }
+    override fun addNewLyric(update: SongUpdate) {
+        val newLyric = HashMap<String, Any>()
+        newLyric["_id"] = 0
+        newLyric["artistID"] = update.artistID
+        newLyric["song"] = update.song
+        newLyric["artistName"] = update.artistName
+        newLyric["lyric"] = update.lyric
+
+        remoteDB.collection("Lyrics").add(newLyric).addOnSuccessListener {
             // Successful write
         }.addOnFailureListener { e ->
             Log.d("Firestore", e.toString())

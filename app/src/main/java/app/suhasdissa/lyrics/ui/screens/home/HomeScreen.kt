@@ -1,17 +1,21 @@
-package app.suhasdissa.lyrics.ui.screens.primary
+package app.suhasdissa.lyrics.ui.screens.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import app.suhasdissa.lyrics.R
+import app.suhasdissa.lyrics.ui.screens.home.tabs.ArtistScreen
+import app.suhasdissa.lyrics.ui.screens.home.tabs.SongsScreen
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -30,7 +34,7 @@ fun HomeScreen(
         TopAppBar(title = { Text(stringResource(R.string.app_name)) }, actions = {
             IconButton(onClick = { onClickSettings() }) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_settings),
+                    imageVector = Icons.Filled.Settings,
                     contentDescription = "Search"
                 )
             }
@@ -38,7 +42,7 @@ fun HomeScreen(
         })
     }, floatingActionButton = {
         FloatingActionButton(onClick = { onClickSearch() }) {
-            Icon(painterResource(R.drawable.ic_search), contentDescription = "Search")
+            Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
         }
     }) { innerPadding ->
         val pagerState = rememberPagerState()

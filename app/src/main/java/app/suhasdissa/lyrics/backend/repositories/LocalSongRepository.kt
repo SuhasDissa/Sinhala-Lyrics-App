@@ -11,10 +11,10 @@ import app.suhasdissa.lyrics.backend.repositories.data.SongHeader
 class LocalSongRepository(private val songsDao: SongsDao, private val artistsDao: ArtistsDao) :
     SongRepository {
 
-    fun SongEntity.toSong() =
+    private fun SongEntity.toSong() =
         Song(artistID = artistID, song = song, lyric = lyric, artistName = artistName, _id = _id)
 
-    fun ArtistEntity.toArtist() = Artist(artistID = artistID, artistName = artistName)
+    private fun ArtistEntity.toArtist() = Artist(artistID = artistID, artistName = artistName)
 
     override suspend fun getSongs(): ArrayList<SongHeader> {
         return songsDao.getSongs().mapTo(ArrayList()) {

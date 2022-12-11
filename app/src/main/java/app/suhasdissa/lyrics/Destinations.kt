@@ -25,6 +25,9 @@ object About : Destination {
 
 object AddSong : Destination {
     override val route = "addsong"
+}
+object EditSong : Destination {
+    override val route = "editsong"
     val routeWithArgs = "$route/{SongID}"
     val arguments = listOf(navArgument("SongID") { type = NavType.IntType })
 }

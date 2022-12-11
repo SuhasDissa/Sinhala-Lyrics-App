@@ -21,7 +21,7 @@ class LyricsViewModel(private val songRepository: SongRepository) : ViewModel() 
             song = "",
             lyric = "",
             artistName = "",
-            _id = 1
+            _id = 0
         )
     )
         private set

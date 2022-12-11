@@ -4,8 +4,14 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import app.suhasdissa.lyrics.ui.screens.primary.*
-import app.suhasdissa.lyrics.ui.screens.secondary.SongView
+import app.suhasdissa.lyrics.ui.screens.home.HomeScreen
+import app.suhasdissa.lyrics.ui.screens.home.search.SearchScreen
+import app.suhasdissa.lyrics.ui.screens.home.tabs.artist.ArtistFilterScreen
+import app.suhasdissa.lyrics.ui.screens.settings.SettingsScreen
+import app.suhasdissa.lyrics.ui.screens.settings.about.AboutScreen
+import app.suhasdissa.lyrics.ui.screens.settings.addsong.AddSongScreen
+import app.suhasdissa.lyrics.ui.screens.songreader.SongView
+import app.suhasdissa.lyrics.ui.screens.songreader.editsong.EditSongScreen
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 
@@ -49,15 +55,17 @@ fun AppNavHost(
             val id = it.arguments?.getInt("SongID")
             if (id != null) {
                 SongView(id, onClickEdit = { songid ->
-                    navController.navigateTo("${AddSong.route}/$songid")
+                    navController.navigateTo("${EditSong.route}/$songid")
                 })
             }
         }
         composable(
-            route = AddSong.routeWithArgs, arguments = AddSong.arguments
+            route = EditSong.routeWithArgs, arguments = EditSong.arguments
         ) {
             val id = it.arguments?.getInt("SongID")
-            AddSongScreen(lyricId = id)
+            if(id !=null) {
+                EditSongScreen(lyricId = id)
+            }
         }
         composable(
             route = AddSong.route

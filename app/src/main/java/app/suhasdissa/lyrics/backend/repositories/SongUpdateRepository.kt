@@ -5,5 +5,6 @@ import app.suhasdissa.lyrics.backend.repositories.data.SongUpdate
 interface SongUpdateRepository {
 
     fun updateLyrics()
-    fun uploadNewLyric(update: SongUpdate)
+    fun editExistingLyric(update: SongUpdate)
+    fun addNewLyric(update: SongUpdate)
 }

@@ -1,4 +1,4 @@
-package app.suhasdissa.lyrics.ui.screens.primary
+package app.suhasdissa.lyrics.ui.screens.home.tabs
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
