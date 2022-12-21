@@ -1,11 +1,8 @@
-<p align="center">
+<div align="center">
   <img width="150" src="/logo.svg" alt="App icon">
-</p>
-
-<h1 align="center">Sinhala Lyrics App</h1>
-
-**Sinhala Lyrics** is a Sinhala song lyrics viewer Android app.
-
+  <h1 align="center">Sinhala Lyrics App</h1>
+  <p><b>Sinhala Lyrics</b> is a Sinhala song lyrics viewer Android app.</p>
+</div>
 
 <div align="center">
 
@@ -15,8 +12,25 @@
 
 </div>
 
+---
+
+<p align="center">
+  <img src="./screenshots/SinhalaLyrics-Screenshot1.png" width="30%" />
+  <img src="./screenshots/SinhalaLyrics-Screenshot2.png" width="30%" />
+  <img src="./screenshots/SinhalaLyrics-Screenshot3.png" width="30%" />
+  <img src="./screenshots/SinhalaLyrics-Screenshot4.png" width="30%" />
+  <img src="./screenshots/SinhalaLyrics-Screenshot5.png" width="30%" />
+</p>
+
+## Features
+- A Collection of more than 2000 Sinhala Lyrics
+- Regular Lyric Updates
+- You can submit new lyrics with ease
+- Read, Copy, Share lyrics
+- Edit lyrics on the go
+
 ## Installation
 
-Download the app now
-
-[![Download](https://img.shields.io/badge/Download-238636?style=for-the-badge&logoColor=white)](https://github.com/SuhasDissa/Sinhala-Lyrics-App/releases)
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png"
+    alt="Get it on GitHub"
+    height="80">](https://github.com/SuhasDissa/Sinhala-Lyrics-App/releases/latest)
