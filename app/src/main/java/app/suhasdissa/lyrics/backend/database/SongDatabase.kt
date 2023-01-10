@@ -6,11 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import app.suhasdissa.lyrics.backend.database.dao.ArtistsDao
 import app.suhasdissa.lyrics.backend.database.dao.SongsDao
-import app.suhasdissa.lyrics.backend.database.entities.ArtistEntity
-import app.suhasdissa.lyrics.backend.database.entities.SongEntity
+import app.suhasdissa.lyrics.backend.database.entities.Artist
+import app.suhasdissa.lyrics.backend.database.entities.Song
 
 @Suppress("TrailingComma")
-@Database(entities = [SongEntity::class, ArtistEntity::class], version = 1, exportSchema = true,)
+@Database(entities = [Song::class, Artist::class], version = 1, exportSchema = true,)
 abstract class SongDatabase : RoomDatabase() {
 
     abstract fun songsDao(): SongsDao

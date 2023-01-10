@@ -8,11 +8,11 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.suhasdissa.lyrics.backend.repositories.data.SongHeader
+import app.suhasdissa.lyrics.backend.database.dao.SongHeader
 
 @Composable
 fun SongGrid(
-    songs: ArrayList<SongHeader>, modifier: Modifier = Modifier, onClickTextCard: (url: Int) -> Unit
+    songs: List<SongHeader>, modifier: Modifier = Modifier, onClickTextCard: (url: Int) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(500.dp),

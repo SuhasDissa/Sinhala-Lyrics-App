@@ -1,13 +1,10 @@
 package app.suhasdissa.lyrics.backend.database.dao
 
 import androidx.room.*
-import app.suhasdissa.lyrics.backend.database.entities.SongEntity
+import app.suhasdissa.lyrics.backend.database.entities.Song
 
 @Dao
 interface SongsDao {
-    @Query("SELECT * FROM songs")
-    fun getAll(): List<SongEntity>
-
     @Query("SELECT _id,song,artistName FROM songs")
     fun getSongs(): List<SongHeader>
 
@@ -18,11 +15,8 @@ interface SongsDao {
     fun filterArtist(artist: Int): List<SongHeader>
 
     @Query("SELECT * FROM songs WHERE _id = :id")
-    fun getSong(id: Int): SongEntity
+    fun getSong(id: Int): Song
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(memes: List<SongEntity>)
-
-    @Delete
-    fun delete(meme: SongEntity)
+    fun insertAll(memes: List<Song>)
 }

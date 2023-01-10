@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "artists")
-data class ArtistEntity(
+data class Artist(
     @PrimaryKey val artistID: Int,
     @ColumnInfo(name = "artistName", defaultValue = "") val artistName: String
 )

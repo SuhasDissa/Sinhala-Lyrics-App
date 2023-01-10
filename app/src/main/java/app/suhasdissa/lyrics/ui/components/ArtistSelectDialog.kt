@@ -17,7 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import app.suhasdissa.lyrics.backend.repositories.data.Artist
+import app.suhasdissa.lyrics.backend.database.entities.Artist
 
 @Composable
 fun ArtistSelectDialog(

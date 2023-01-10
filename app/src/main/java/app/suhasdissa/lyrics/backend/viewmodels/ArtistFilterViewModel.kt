@@ -10,8 +10,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.lyrics.LyricsApplication
+import app.suhasdissa.lyrics.backend.database.entities.Artist
 import app.suhasdissa.lyrics.backend.repositories.SongRepository
-import app.suhasdissa.lyrics.backend.repositories.data.Artist
 import app.suhasdissa.lyrics.backend.viewmodels.states.FilterState
 import kotlinx.coroutines.launch
 

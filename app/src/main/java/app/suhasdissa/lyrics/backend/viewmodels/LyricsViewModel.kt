@@ -10,8 +10,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import app.suhasdissa.lyrics.LyricsApplication
+import app.suhasdissa.lyrics.backend.database.entities.Song
 import app.suhasdissa.lyrics.backend.repositories.SongRepository
-import app.suhasdissa.lyrics.backend.repositories.data.Song
 import kotlinx.coroutines.launch
 
 class LyricsViewModel(private val songRepository: SongRepository) : ViewModel() {

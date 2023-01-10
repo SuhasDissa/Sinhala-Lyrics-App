@@ -22,7 +22,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.suhasdissa.lyrics.R
-import app.suhasdissa.lyrics.backend.repositories.data.Artist
+import app.suhasdissa.lyrics.backend.database.entities.Artist
 import app.suhasdissa.lyrics.backend.repositories.data.SongUpdate
 import app.suhasdissa.lyrics.backend.viewmodels.AddSongViewModel
 import app.suhasdissa.lyrics.backend.viewmodels.ArtistViewModel

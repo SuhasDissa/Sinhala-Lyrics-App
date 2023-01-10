@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import app.suhasdissa.lyrics.backend.repositories.data.Artist
+import app.suhasdissa.lyrics.backend.database.entities.Artist
 import app.suhasdissa.lyrics.backend.viewmodels.ArtistViewModel
 import app.suhasdissa.lyrics.ui.components.ArtistCard
 
@@ -28,7 +28,7 @@ fun ArtistScreen(
 
 @Composable
 private fun ArtistGrid(
-    songs: ArrayList<Artist>, modifier: Modifier = Modifier, onClickTextCard: (url: Int) -> Unit
+    songs: List<Artist>, modifier: Modifier = Modifier, onClickTextCard: (url: Int) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(500.dp),
