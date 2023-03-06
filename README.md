@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="150" src="/logo.svg" alt="App icon">
+  <img width="150" src="/logo.png" alt="App icon">
   <h1 align="center">Sinhala Lyrics App</h1>
   <p><b>Sinhala Lyrics</b> is a Sinhala song lyrics viewer Android app.</p>
 </div>
