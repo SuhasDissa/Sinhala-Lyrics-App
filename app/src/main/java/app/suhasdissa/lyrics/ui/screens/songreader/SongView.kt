@@ -28,7 +28,7 @@ fun SongView(
         lyricViewModel.getSong(lyricId)
     }
     Scaffold(modifier = modifier.fillMaxSize(), topBar = {
-        TopAppBar(title = { Text(song.song, overflow = TextOverflow.Ellipsis) }, actions = {
+        TopAppBar(title = { Text(song.song, overflow = TextOverflow.Ellipsis, maxLines = 1) }, actions = {
             IconButton(onClick = { onClickEdit(lyricId) }) {
                 Icon(
                     imageVector = Icons.Filled.Edit, contentDescription = "Edit"

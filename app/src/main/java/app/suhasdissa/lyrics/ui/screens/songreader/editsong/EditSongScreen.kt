@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AutoMode
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -44,10 +44,18 @@ fun EditSongScreen(
     val context = LocalContext.current
     val song = lyricViewModel.song
     val artistDialogOpen = remember { mutableStateOf(false) }
-    val songNameText = remember { mutableStateOf(TextFieldValue(song.song)) }
-    val songLyricText = remember { mutableStateOf(TextFieldValue(song.lyric)) }
-    val songIDText = remember { mutableStateOf(TextFieldValue(song._id.toString())) }
-    val selectedArtist = remember { mutableStateOf(Artist(0, "Select Singer")) }
+    val songNameText = remember(song) { mutableStateOf(TextFieldValue(song.song)) }
+    val songLyricText = remember(song) { mutableStateOf(TextFieldValue(song.lyric)) }
+    val songIDText = remember(song) { mutableStateOf(TextFieldValue(song._id.toString())) }
+    val selectedArtist = remember(song) {
+        val artist = artistViewModel.artists.firstOrNull { it.artistID == song.artistID }
+        if (artist != null) {
+            mutableStateOf(artist)
+        } else {
+            mutableStateOf(Artist(0, "Select Singer"))
+        }
+    }
+
     Scaffold(modifier = modifier.fillMaxSize(), topBar = {
         TopAppBar(title = { Text(stringResource(R.string.edit_lyric)) }, actions = {
             IconButton(onClick = {
@@ -60,14 +68,13 @@ fun EditSongScreen(
                 }
             }) {
                 Icon(
-                    imageVector = Icons.Filled.AutoMode, contentDescription = "Refresh"
+                    imageVector = Icons.Filled.Refresh, contentDescription = "Refresh"
                 )
             }
         })
     }) { innerPadding ->
         if (artistDialogOpen.value) {
-            ArtistSelectDialog(
-                optionsList = artistViewModel.artists,
+            ArtistSelectDialog(optionsList = artistViewModel.artists,
                 onSubmitButtonClick = {
                     selectedArtist.value = it
                 },
@@ -113,8 +120,7 @@ fun EditSongScreen(
                 }
             }
             item {
-                TextField(
-                    value = songIDText.value,
+                TextField(value = songIDText.value,
                     onValueChange = {
                         songIDText.value = it
                     },
